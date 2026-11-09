@@ -1,9 +1,12 @@
 # Données de lieux — Mundoo
 
-Lieux (manger, dormir, visiter) servis à l'appli **Mundoo**, rangés en carrés de 0,1°.
+Lieux (manger, dormir, visiter) servis à l'appli **Mundoo**, rangés par pays puis en carrés de 0,1°.
 
-- `v1/index.json` : liste des carrés, colonnes, sources, date de mise à jour
-- `v1/c/<lat>_<lon>.json` : lieux d'un carré
+- `v2/index.json` : liste des pays (date de mise à jour, nombre de lieux, sources, zones de 5° où le pays a des lieux), colonnes
+- `v2/<pays>/index.json` : carrés du pays et nombre de lieux de chacun (`fr`, `de`, `es`…)
+- `v2/<pays>/c/<lat>_<lon>.json` : lieux d'un carré (clé = coordonnées × 10, arrondies vers le bas)
+
+Chaque pays a sa propre date : quand un pays est mis à jour, l'appli ne retélécharge que ses carrés. (Format `v1`, une seule liste pour tout le monde, retiré en version 0.29.0 de l'appli.)
 
 Fabriqué avec `tools/places/` (dépôt de l'appli) à partir de :
 
